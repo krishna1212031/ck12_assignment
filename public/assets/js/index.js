@@ -15,7 +15,7 @@ const createLiEl = (item, el) => {
   li.id = item.id;
 
   li.className = "panel";
-  if (item.childrenCount){
+  if (item.childrenCount) {
     li.classList.add("chapter");
   }
 
@@ -63,7 +63,14 @@ const createProgress = (parent, item) => {
   } else {
     let className = item.status.toLowerCase();
     let status = className.split("_").join(" ");
-    progress.innerText = status;
+    console.log(status);
+    if (status == "complete") {
+      let icon = document.createElement("i");
+        icon.className = "fas fa-check-circle";
+      progress.appendChild(icon);
+    } else {
+      progress.innerText = status;
+    }
     progress.classList.add(className);
   }
 
@@ -90,7 +97,7 @@ const createPanel = (item, list, firstIndex) => {
 //used to create first level of chapter or
 const createFirstLvlEl = (item, list) => {
   let liEl = createLiEl(item, list);
-  
+
   createPanel(item, liEl);
 
   if (item.type === "chapter") {
@@ -194,3 +201,10 @@ function init() {
 }
 
 init();
+
+let hactoberfest = 'hacktoberfest-accepted'
+const print =(x)=>{
+  console.log(x)
+}
+
+print(hactoberfest);
